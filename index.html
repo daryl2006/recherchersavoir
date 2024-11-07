@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function validateForm(event) {
+            const name = document.forms["registerForm"]["name"].value;
+            const prenom = document.forms["registerForm"]["prenom"].value;
+            const whatsapp = document.forms["registerForm"]["whatsapp"].value;
+            const email = document.forms["registerForm"]["email"].value;
+            const classe = document.forms["registerForm"]["classe"].value;
+            const etablissement = document.forms["registerForm"]["etablissement"].value;
+            const password = document.forms["registerForm"]["pass"].value;
+            const confirmPassword = document.forms["registerForm"]["c_pass"].value;
+
+            if (!name || !prenom || !whatsapp || !email || !classe || !etablissement || !password || !confirmPassword) {
+                alert("Tous les champs doivent être remplis !");
+                event.preventDefault();
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Les mots de passe ne correspondent pas !");
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<header class="header">
+    <section class="flex">
+        <a href="home.html" class="logo">FI</a>
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="user-btn" class="fas fa-user"></div>
+            <div id="toggle-btn" class="fas fa-sun"></div>
+        </div>
+        <div class="profile">
+            <img src="images/pic-1.jpg" class="image" alt="Profile Picture">
+            <h3 class="name">Espace</h3>
+            <p class="role">Apprenant</p>
+            <div class="flex-btn">
+                <a href="login.html" class="option-btn">Connect</a>
+                <a href="register.html" class="option-btn">Enregistrer</a>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="side-bar">
+    <div id="close-btn">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="profile">
+        <img src="images/pic-1.jpg" class="image" alt="Profile Picture">
+        <h3 class="name">Espace</h3>
+        <p class="role">Apprenant</p>
+    </div>
+</div>
+
+<section class="form-container">
+    <form name="registerForm" action="login.html" method="post" enctype="multipart/form-data" onsubmit="validateForm(event)">
+        <h3>Enregistre-toi</h3>
+        <p>ton nom <span>*</span></p>
+        <input type="text" name="name" placeholder="IWEGA" required maxlength="10" class="box">
+        <p>ton prénom <span>*</span></p>
+        <input type="text" name="prenom" placeholder="AMEL" required maxlength="10" class="box">
+        <p>ton numéro WhatsApp <span>*</span></p>
+        <input type="number" name="whatsapp" placeholder="693 000 000" required maxlength="9" class="box">
+        <p>ton email <span>*</span></p>
+        <input type="email" name="email" placeholder="maxwel@gmail.com" required maxlength="30" class="box">
+        <p>ta classe <span>*</span></p>
+        <input type="text" name="classe" placeholder="PREM & TLE A C D ou TI" required maxlength="7" class="box"> 
+        <p>ton établissement <span>*</span></p>
+        <input type="text" name="etablissement" placeholder="Lycée Bilingue BIEM-ASSI" required maxlength="20" class="box">
+        <p>ton mot de passe <span>*</span></p>
+        <input type="password" name="pass" placeholder="oumaro2005" required maxlength="10" class="box">
+        <p>confirme ton mot de passe <span>*</span></p>
+        <input type="password" name="c_pass" placeholder="oumaro2005" required maxlength="10" class="box">
+        <p>Preuve que vous fréquentez (ancien bulletin, carte scolaire..) <span>*</span></p>
+        <input type="file" name="proof_file" accept="image/*" required class="box">
+        <input type="submit" value="S'enregistrer" class="btn">
+        <P>Si tu es deja enregistre, connecte toi tout simplement.</P>
+        <a href="login.html" class="btn">Se connecter</a>
+    </form>
+</section>
+
+<footer class="footer">
+    &copy; copyright @ 2024 by <span>FI</span> | Tout droit réservé !
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
